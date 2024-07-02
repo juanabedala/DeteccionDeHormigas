@@ -1,0 +1,11 @@
+import torch
+import utils
+torch.cuda.is_available()
+# comando para entrenar modelo de clasificación de imágenes
+!python yolov5/classify/train.py --model yolov5s-cls.pt --data datasets/data_images_yolov9_clasific --batch 5 --epochs 100 --img 640
+
+# comando para entrenar modelo de detección de objetos con yolov5s
+!python yolov5/train.py --img 640 --batch 5 --epochs 100 --data datasets/data_images_yolov5_boundingBoxes/data.yaml --weights yolov5s.pt
+
+# comando para entrenar modelo de detección de objetos con yolov5x
+!python yolov5/train.py --img 640 --batch 5 --epochs 100 --data datasets/data_images_yolov5_boundingBoxes/data.yaml --weights yolov5x.pt
